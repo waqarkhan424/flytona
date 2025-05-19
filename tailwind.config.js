@@ -26,6 +26,10 @@ module.exports = {
         "card-foreground": "var(--card-foreground)",
         popover: "var(--popover)",
         "popover-foreground": "var(--popover-foreground)",
+
+        // WhatsApp
+        whatsapp: "var(--whatsapp)",
+        "whatsapp-foreground": "var(--whatsapp-foreground)",
       },
       borderRadius: {
         sm: "calc(var(--radius) - 4px)",

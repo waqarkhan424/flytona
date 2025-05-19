@@ -18,7 +18,7 @@ import Typography from "./ui/typography";
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-700 text-white mt-10 pt-10">
+    <footer className="bg-primary text-primary-foreground mt-10 pt-10">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8 pb-10">
         {/* Logo */}
         <div>
@@ -87,11 +87,7 @@ export default function Footer() {
             </li>
             <li className="flex items-start gap-2">
               <FaMapMarkerAlt />
-              <Typography
-                variant="p"
-                affects="muted"
-                className="leading-snug text-white"
-              >
+              <Typography variant="p" affects="muted" className="leading-snug">
                 Rehman Travels Office No 3 Ground Floor, Office Tower 44 East
                 Fazal E Haq Road Blue Area, G 6/2, Islamabad, 44000, Pakistan
               </Typography>
@@ -101,36 +97,36 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="bg-blue-900 py-3 text-sm text-center text-white">
+      <div className="bg-primary/90 py-3 text-sm text-center text-primary-foreground">
         <TooltipProvider>
           <div className="flex justify-center gap-4 mb-2">
             <Tooltip>
               <TooltipTrigger asChild>
-                <FaFacebookF className="cursor-pointer hover:text-gray-300" />
+                <FaFacebookF className="cursor-pointer hover:text-muted-foreground" />
               </TooltipTrigger>
               <TooltipContent>Facebook</TooltipContent>
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
-                <FaTwitter className="cursor-pointer hover:text-gray-300" />
+                <FaTwitter className="cursor-pointer hover:text-muted-foreground" />
               </TooltipTrigger>
               <TooltipContent>Twitter</TooltipContent>
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
-                <FaInstagram className="cursor-pointer hover:text-gray-300" />
+                <FaInstagram className="cursor-pointer hover:text-muted-foreground" />
               </TooltipTrigger>
               <TooltipContent>Instagram</TooltipContent>
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
-                <FaPinterest className="cursor-pointer hover:text-gray-300" />
+                <FaPinterest className="cursor-pointer hover:text-muted-foreground" />
               </TooltipTrigger>
               <TooltipContent>Pinterest</TooltipContent>
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
-                <FaYoutube className="cursor-pointer hover:text-gray-300" />
+                <FaYoutube className="cursor-pointer hover:text-muted-foreground" />
               </TooltipTrigger>
               <TooltipContent>YouTube</TooltipContent>
             </Tooltip>

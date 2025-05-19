@@ -58,6 +58,10 @@
 
   --popover: #ffffff;
   --popover-foreground: #1f2937;
+
+  /*  WhatsApp color */
+  --whatsapp: #25d366;
+  --whatsapp-foreground: #ffffff;
 }
 
 .dark {
@@ -88,6 +92,10 @@
 
   --popover: #1e293b;
   --popover-foreground: #f8fafc;
+
+  /*  WhatsApp dark mode (optional: can be same or change) */
+  --whatsapp: #25d366;
+  --whatsapp-foreground: #1e293b;
 }
 
 @layer base {
