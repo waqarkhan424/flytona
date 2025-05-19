@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", "sans-serif"], // ✅ Connect to Nunito Sans
+        sans: ["var(--font-sans)", "ui-sans-serif"],
       },
     },
   },
