@@ -97,7 +97,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="bg-primary/90 py-3 text-sm text-center text-primary-foreground">
+      <div className="bg-primary py-3 text-sm text-center text-primary-foreground">
         <TooltipProvider>
           <div className="flex justify-center gap-4 mb-2">
             <Tooltip>
