@@ -83,17 +83,17 @@ export default function Footer() {
           </Typography>
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2">
-              <FaPhone /> +92 51 111 786 785
+              <FaPhone size={14} className="flex-shrink-0" />
+              +92 51 111 786 785
             </li>
             <li className="flex items-center gap-2">
-              <FaEnvelope /> info@rehmantravel.com
+              <FaEnvelope size={14} className="flex-shrink-0" />
+              info@rehmantravel.com
             </li>
             <li className="flex items-start gap-2">
-              <FaMapMarkerAlt />
-              <Typography variant="p" className="leading-snug">
-                Rehman Travels Office No 3 Ground Floor, Office Tower 44 East
-                Fazal E Haq Road Blue Area, G 6/2, Islamabad, 44000, Pakistan
-              </Typography>
+              <FaMapMarkerAlt size={14} className="flex-shrink-0" />
+              Rehman Travels Office No 3 Ground Floor, Office Tower 44 East
+              Fazal E Haq Road Blue Area, G 6/2, Islamabad, 44000, Pakistan
             </li>
           </ul>
         </div>
