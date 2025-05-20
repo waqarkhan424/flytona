@@ -15,7 +15,9 @@ import {
   TooltipContent,
 } from "@/components/ui/tooltip";
 import Typography from "./ui/typography";
+import { quickLinks, branchList, contactDetails } from "@/lib/siteData";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -38,19 +40,11 @@ export default function Footer() {
             QUICK LINKS
           </Typography>
           <ul className="space-y-1 text-sm">
-            {[
-              "Home",
-              "Flights",
-              "About Us",
-              "Travel Agency",
-              "Privacy Policy",
-              "Refund Policy",
-              "Contact Us",
-            ].map((link) => (
+            {quickLinks.map((link) => (
               <li key={link}>
-                <a href="/" className="hover:underline">
+                <Link href="/" className="hover:underline">
                   {link}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -62,13 +56,7 @@ export default function Footer() {
             OUR BRANCHES
           </Typography>
           <ul className="space-y-1 text-sm">
-            {[
-              "Islamabad",
-              "Peshawar",
-              "Lahore",
-              "Dubai (UAE)",
-              "United Kingdom",
-            ].map((branch) => (
+            {branchList.map((branch) => (
               <li key={branch}>
                 <span>{branch}</span>
               </li>
@@ -84,16 +72,15 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2">
               <FaPhone size={14} className="flex-shrink-0" />
-              +92 51 111 786 785
+              {contactDetails.phone}
             </li>
             <li className="flex items-center gap-2">
               <FaEnvelope size={14} className="flex-shrink-0" />
-              info@rehmantravel.com
+              {contactDetails.email}
             </li>
             <li className="flex items-start gap-2">
               <FaMapMarkerAlt size={14} className="flex-shrink-0" />
-              Rehman Travels Office No 3 Ground Floor, Office Tower 44 East
-              Fazal E Haq Road Blue Area, G 6/2, Islamabad, 44000, Pakistan
+              {contactDetails.address}
             </li>
           </ul>
         </div>

@@ -22,6 +22,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { contactDetails, navLinks, navDropdownItems } from "@/lib/siteData";
 
 export default function Header() {
   return (
@@ -43,10 +44,11 @@ export default function Header() {
           </Link>
           <div className="text-sm mt-2 md:mt-0 md:ml-6 flex flex-col md:flex-row md:items-center gap-1 md:gap-4 text-muted-foreground">
             <div className="flex items-center gap-1">
-              <FaPhone className="text-primary" /> +92 51 111 786 785
+              <FaPhone className="text-primary" /> {contactDetails.phone}
             </div>
             <div className="flex items-center gap-1">
-              <FaWhatsapp className="text-whatsapp" /> +92 311 786 785
+              <FaWhatsapp className="text-whatsapp" />
+              {contactDetails.whatsapp}
             </div>
           </div>
         </div>
@@ -89,10 +91,12 @@ export default function Header() {
           {/* Currency Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 ml-3 font-semibold cursor-pointer">
-              <img
+              <Image
                 src="/usd.webp"
                 alt="US Flag"
-                className="w-4 h-4 object-cover"
+                width={16}
+                height={16}
+                className="object-cover"
               />
               USD
               <IoMdArrowDropdown />
@@ -109,27 +113,8 @@ export default function Header() {
       {/* Navigation */}
       <nav className="bg-primary text-primary-foreground text-sm font-semibold">
         <div className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap gap-4 items-center">
-          {[
-            "Home",
-            "Flights",
-            "Hajj",
-            "Umrah",
-            "Study",
-            "Visa",
-            "World Tours",
-            "Pakistan Tours",
-            "About Us",
-            "Contact Us",
-          ].map((item) => {
-            const hasDropdown = [
-              "Hajj",
-              "Umrah",
-              "Study",
-              "Visa",
-              "World Tours",
-              "Pakistan Tours",
-              "About Us",
-            ].includes(item);
+          {navLinks.map((item) => {
+            const hasDropdown = navDropdownItems.includes(item);
 
             return hasDropdown ? (
               <DropdownMenu key={item}>
