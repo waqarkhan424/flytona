@@ -112,7 +112,7 @@ export default function Header() {
 
       {/* Navigation */}
       <nav className="bg-primary text-primary-foreground text-sm font-semibold">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap gap-4 items-center">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex justify-center flex-wrap gap-6 items-center">
           {navLinks.map((item) => {
             const hasDropdown = navDropdownItems.includes(item);
 
