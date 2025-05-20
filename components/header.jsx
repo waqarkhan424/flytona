@@ -27,7 +27,7 @@ import { contactDetails, navLinks, navDropdownItems } from "@/lib/siteData";
 export default function Header() {
   return (
     <header className="bg-background shadow-md sticky top-0 z-50 border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 py-2 flex flex-col md:flex-row justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 py-4 mt-4 flex flex-col md:flex-row justify-between items-center">
         {/* Logo + Contacts */}
         <div className="flex items-center justify-between w-full md:w-auto">
           <Link
@@ -37,8 +37,8 @@ export default function Header() {
             <Image
               src="/flytona.png"
               alt="Flytona"
-              width={120}
-              height={40}
+              width={150}
+              height={50}
               priority
             />
           </Link>
@@ -111,14 +111,14 @@ export default function Header() {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-primary text-primary-foreground text-sm font-semibold">
+      <nav className="bg-primary text-primary-foreground text-base md:text-lg font-semibold">
         <div className="max-w-7xl mx-auto px-4 py-3 flex justify-center flex-wrap gap-6 items-center">
           {navLinks.map((item) => {
             const hasDropdown = navDropdownItems.includes(item);
 
             return hasDropdown ? (
               <DropdownMenu key={item}>
-                <DropdownMenuTrigger className="flex items-center gap-1 hover:underline cursor-pointer">
+                <DropdownMenuTrigger className="flex items-center gap-1 px-2 py-1 rounded hover:bg-primary-foreground/10 transition">
                   {item} <IoMdArrowDropdown />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
