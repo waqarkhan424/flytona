@@ -22,11 +22,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8 pb-10">
         {/* Logo */}
         <div>
-          <img
-            src="/rgt-logo_footer.webp"
-            alt="Flytona"
-            className="h-10 mb-4"
-          />
+          <img src="/flytona-white.png" alt="Flytona" className="h-10 mb-4" />
         </div>
 
         {/* Quick Links */}
