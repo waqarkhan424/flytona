@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaFacebookF,
   FaTwitter,
@@ -32,7 +33,13 @@ export default function Header() {
             href="/"
             className="text-xl font-bold text-primary flex items-center gap-2"
           >
-            <img src="/flytona.png" alt="Flytona" className="h-8" />
+            <Image
+              src="/flytona.png"
+              alt="Flytona"
+              width={120}
+              height={40}
+              priority
+            />
           </Link>
           <div className="text-sm mt-2 md:mt-0 md:ml-6 flex flex-col md:flex-row md:items-center gap-1 md:gap-4 text-muted-foreground">
             <div className="flex items-center gap-1">

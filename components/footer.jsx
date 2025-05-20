@@ -15,6 +15,7 @@ import {
   TooltipContent,
 } from "@/components/ui/tooltip";
 import Typography from "./ui/typography";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -22,7 +23,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8 pb-10">
         {/* Logo */}
         <div>
-          <img src="/flytona-white.png" alt="Flytona" className="h-10 mb-4" />
+          <Image
+            src="/flytona-white.png"
+            alt="Flytona"
+            width={140}
+            height={50}
+            priority
+          />
         </div>
 
         {/* Quick Links */}
