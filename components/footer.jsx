@@ -87,7 +87,7 @@ export default function Footer() {
             </li>
             <li className="flex items-start gap-2">
               <FaMapMarkerAlt />
-              <Typography variant="p" affects="muted" className="leading-snug">
+              <Typography variant="p" className="leading-snug">
                 Rehman Travels Office No 3 Ground Floor, Office Tower 44 East
                 Fazal E Haq Road Blue Area, G 6/2, Islamabad, 44000, Pakistan
               </Typography>
@@ -97,7 +97,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom */}
-      <div className="bg-primary py-3 text-sm text-center text-primary-foreground">
+      <div className="bg-primary border-t border-primary-foreground/20 py-4 text-sm text-center text-primary-foreground">
         <TooltipProvider>
           <div className="flex justify-center gap-4 mb-2">
             <Tooltip>
