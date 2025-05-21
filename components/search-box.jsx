@@ -29,7 +29,6 @@ import { LiaChairSolid } from "react-icons/lia";
 export default function SearchBox() {
   return (
     <div className="bg-white border border-border shadow-sm rounded-2xl p-6 mt-6 max-w-7xl mx-auto">
-      {/* <div className="bg-accent border border-border shadow-sm rounded-2xl p-6 mt-6 max-w-7xl mx-auto"> */}
       <div className="flex flex-wrap gap-3 mb-4 justify-center">
         {tripTypes.map((type, index) => (
           <Button
