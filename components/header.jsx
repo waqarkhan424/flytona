@@ -27,9 +27,9 @@ import { contactDetails, navLinks, navDropdownItems } from "@/lib/siteData";
 export default function Header() {
   return (
     <header className="bg-background shadow-md sticky top-0 z-50 border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 py-4 mt-4 flex flex-col md:flex-row justify-between items-center">
-        {/* Logo + Contacts */}
-        <div className="flex items-center justify-between w-full md:w-auto">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-y-3 md:gap-x-6">
+        {/* Logo + Contact */}
+        <div className="flex items-center justify-between w-full md:w-auto gap-x-6">
           <Link
             href="/"
             className="text-xl font-bold text-primary flex items-center gap-2"
@@ -42,50 +42,38 @@ export default function Header() {
               priority
             />
           </Link>
-          <div className="text-sm mt-2 md:mt-0 md:ml-6 flex flex-col md:flex-row md:items-center gap-1 md:gap-4 text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <FaPhone className="text-primary" /> {contactDetails.phone}
+
+          <div className="text-sm flex flex-col md:flex-row md:items-center gap-2 md:gap-6 text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <FaPhone size={16} className="text-primary" />
+              {contactDetails.phone}
             </div>
-            <div className="flex items-center gap-1">
-              <FaWhatsapp className="text-whatsapp" />
+            <div className="flex items-center gap-2">
+              <FaWhatsapp size={16} className="text-whatsapp" />
               {contactDetails.whatsapp}
             </div>
           </div>
         </div>
 
-        {/* Social & Currency */}
-        <div className="flex items-center space-x-4 mt-3 md:mt-0">
+        {/* Social Icons + Currency */}
+        <div className="flex items-center space-x-4">
           <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <FaFacebookF className="hover:text-primary cursor-pointer" />
-              </TooltipTrigger>
-              <TooltipContent>Facebook</TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <FaTwitter className="hover:text-primary cursor-pointer" />
-              </TooltipTrigger>
-              <TooltipContent>Twitter</TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <FaInstagram className="hover:text-pink-600 cursor-pointer" />
-              </TooltipTrigger>
-              <TooltipContent>Instagram</TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <FaPinterest className="hover:text-red-500 cursor-pointer" />
-              </TooltipTrigger>
-              <TooltipContent>Pinterest</TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <FaYoutube className="hover:text-red-600 cursor-pointer" />
-              </TooltipTrigger>
-              <TooltipContent>YouTube</TooltipContent>
-            </Tooltip>
+            {[
+              { icon: <FaFacebookF size={16} />, label: "Facebook" },
+              { icon: <FaTwitter size={16} />, label: "Twitter" },
+              { icon: <FaInstagram size={16} />, label: "Instagram" },
+              { icon: <FaPinterest size={16} />, label: "Pinterest" },
+              { icon: <FaYoutube size={16} />, label: "YouTube" },
+            ].map(({ icon, label }, index) => (
+              <Tooltip key={index}>
+                <TooltipTrigger asChild>
+                  <div className="cursor-pointer hover:text-primary">
+                    {icon}
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>{label}</TooltipContent>
+              </Tooltip>
+            ))}
           </TooltipProvider>
 
           {/* Currency Dropdown */}
@@ -110,15 +98,15 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className="bg-primary text-primary-foreground text-base md:text-lg font-semibold">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex justify-center flex-wrap gap-6 items-center">
+      {/* Navigation Bar */}
+      <nav className="bg-primary text-white text-sm md:text-base font-semibold">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex justify-center flex-wrap gap-6">
           {navLinks.map((item) => {
             const hasDropdown = navDropdownItems.includes(item);
 
             return hasDropdown ? (
               <DropdownMenu key={item}>
-                <DropdownMenuTrigger className="flex items-center gap-1 px-2 py-1 rounded hover:bg-primary-foreground/10 transition">
+                <DropdownMenuTrigger className="flex items-center gap-1 px-2 py-1 rounded hover:bg-white/10 transition">
                   {item} <IoMdArrowDropdown />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -130,7 +118,7 @@ export default function Header() {
               <Link
                 key={item}
                 href="/"
-                className="hover:underline flex items-center gap-1"
+                className="hover:text-white/80 transition-colors"
               >
                 {item}
               </Link>

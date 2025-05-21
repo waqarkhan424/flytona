@@ -21,8 +21,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground mt-10 pt-10">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8 pb-10">
+    <footer className="bg-primary text-white mt-10 pt-10">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pb-10">
         {/* Logo */}
         <div>
           <Image
@@ -39,10 +39,13 @@ export default function Footer() {
           <Typography variant="h3" className="mb-2">
             QUICK LINKS
           </Typography>
-          <ul className="space-y-1 text-sm">
+          <ul className="space-y-2 text-sm md:text-base">
             {quickLinks.map((link) => (
               <li key={link}>
-                <Link href="/" className="hover:underline">
+                <Link
+                  href="/"
+                  className="hover:underline text-white/90 hover:text-white transition"
+                >
                   {link}
                 </Link>
               </li>
@@ -50,76 +53,60 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Our Branches */}
+        {/* Branches */}
         <div>
           <Typography variant="h3" className="mb-2">
             OUR BRANCHES
           </Typography>
-          <ul className="space-y-1 text-sm">
+          <ul className="space-y-2 text-sm md:text-base">
             {branchList.map((branch) => (
-              <li key={branch}>
-                <span>{branch}</span>
-              </li>
+              <li key={branch}>{branch}</li>
             ))}
           </ul>
         </div>
 
-        {/* Contact Us */}
+        {/* Contact */}
         <div>
           <Typography variant="h3" className="mb-2">
             CONTACT US
           </Typography>
-          <ul className="space-y-2 text-sm">
-            <li className="flex items-center gap-2">
-              <FaPhone size={14} className="flex-shrink-0" />
+          <ul className="space-y-2 text-sm md:text-base">
+            <li className="flex items-start gap-3">
+              <FaPhone size={16} className="mt-1 flex-shrink-0" />
               {contactDetails.phone}
             </li>
-            <li className="flex items-center gap-2">
-              <FaEnvelope size={14} className="flex-shrink-0" />
+            <li className="flex items-start gap-3">
+              <FaEnvelope size={16} className="mt-1 flex-shrink-0" />
               {contactDetails.email}
             </li>
-            <li className="flex items-start gap-2">
-              <FaMapMarkerAlt size={14} className="flex-shrink-0" />
+            <li className="flex items-start gap-3">
+              <FaMapMarkerAlt size={16} className="mt-1 flex-shrink-0" />
               {contactDetails.address}
             </li>
           </ul>
         </div>
       </div>
 
-      {/* Bottom */}
-      <div className="bg-primary border-t border-primary-foreground/20 py-4 text-sm text-center text-primary-foreground">
+      {/* Footer Bottom */}
+      <div className="bg-primary border-t border-white/20 py-4 text-sm text-center">
         <TooltipProvider>
           <div className="flex justify-center gap-4 mb-2">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <FaFacebookF className="cursor-pointer hover:text-muted-foreground" />
-              </TooltipTrigger>
-              <TooltipContent>Facebook</TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <FaTwitter className="cursor-pointer hover:text-muted-foreground" />
-              </TooltipTrigger>
-              <TooltipContent>Twitter</TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <FaInstagram className="cursor-pointer hover:text-muted-foreground" />
-              </TooltipTrigger>
-              <TooltipContent>Instagram</TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <FaPinterest className="cursor-pointer hover:text-muted-foreground" />
-              </TooltipTrigger>
-              <TooltipContent>Pinterest</TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <FaYoutube className="cursor-pointer hover:text-muted-foreground" />
-              </TooltipTrigger>
-              <TooltipContent>YouTube</TooltipContent>
-            </Tooltip>
+            {[
+              { icon: <FaFacebookF size={16} />, label: "Facebook" },
+              { icon: <FaTwitter size={16} />, label: "Twitter" },
+              { icon: <FaInstagram size={16} />, label: "Instagram" },
+              { icon: <FaPinterest size={16} />, label: "Pinterest" },
+              { icon: <FaYoutube size={16} />, label: "YouTube" },
+            ].map(({ icon, label }, index) => (
+              <Tooltip key={index}>
+                <TooltipTrigger asChild>
+                  <div className="cursor-pointer hover:text-muted-foreground">
+                    {icon}
+                  </div>
+                </TooltipTrigger>
+                <TooltipContent>{label}</TooltipContent>
+              </Tooltip>
+            ))}
           </div>
         </TooltipProvider>
         &copy; {new Date().getFullYear()} Exalted System™. All Rights Reserved.
