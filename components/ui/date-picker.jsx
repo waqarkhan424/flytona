@@ -25,7 +25,7 @@ export function DatePicker({ placeholder = "Pick a date" }) {
             !date && "text-muted-foreground"
           )}
         >
-          <CalendarIcon className="mr-2 h-4 w-4" />
+          <CalendarIcon className="mr-2 h-4 w-4 text-primary" />
           {date ? format(date, "MM/dd/yyyy") : <span>{placeholder}</span>}
         </Button>
       </PopoverTrigger>

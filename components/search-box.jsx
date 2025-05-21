@@ -29,6 +29,7 @@ import { LiaChairSolid } from "react-icons/lia";
 export default function SearchBox() {
   return (
     <div className="bg-white border border-border shadow-sm rounded-2xl p-6 mt-6 max-w-7xl mx-auto">
+      {/* <div className="bg-accent border border-border shadow-sm rounded-2xl p-6 mt-6 max-w-7xl mx-auto"> */}
       <div className="flex flex-wrap gap-3 mb-4 justify-center">
         {tripTypes.map((type, index) => (
           <Button
@@ -44,7 +45,7 @@ export default function SearchBox() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="sm" className="rounded-full">
-              <LiaChairSolid />
+              <LiaChairSolid className="text-primary" />
               Economy <IoMdArrowDropdown />
             </Button>
           </DropdownMenuTrigger>
@@ -59,7 +60,7 @@ export default function SearchBox() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="sm" className="rounded-full">
-              <FaPersonWalkingLuggage />
+              <FaPersonWalkingLuggage className="text-primary" />
               1 Traveller <IoMdArrowDropdown />
             </Button>
           </DropdownMenuTrigger>
@@ -96,21 +97,13 @@ export default function SearchBox() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
         <div className="flex items-center gap-2">
-          <FaPlaneDeparture className="text-muted-foreground" />
+          <FaPlaneDeparture className="text-primary" />
           <Input type="text" placeholder="From Where" />
         </div>
         <div className="flex items-center gap-2">
-          <FaPlaneArrival className="text-muted-foreground" />
+          <FaPlaneArrival className="text-primary" />
           <Input type="text" placeholder="To Where" />
         </div>
-
-        {/* <div className="flex items-center gap-2">
-          <Input type="date" />
-        </div>
-
-        <div className="flex items-center gap-2">
-          <Input type="date" />
-        </div> */}
 
         <div className="flex items-center gap-2">
           <DatePicker placeholder="Departure" />
@@ -121,7 +114,7 @@ export default function SearchBox() {
         </div>
 
         <div className="flex items-center gap-2">
-          <FaPhone className="text-muted-foreground" />
+          <FaPhone className="text-primary" />
           <Input type="text" placeholder="Contact No." />
         </div>
 
