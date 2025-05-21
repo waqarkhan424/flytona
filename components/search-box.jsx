@@ -26,7 +26,6 @@ import {
   currencyOptions,
 } from "@/lib/searchData";
 import { LiaChairSolid } from "react-icons/lia";
-import { GiKaaba } from "react-icons/gi";
 
 export default function SearchBox() {
   return (
@@ -34,24 +33,25 @@ export default function SearchBox() {
       className="relative bg-cover bg-center bg-no-repeat py-10"
       style={{ backgroundImage: "url('/cloud.png')" }}
     >
-      {/* Tabs like Flights, Umrah, Visa */}
-      <div className="flex justify-center gap-2 mb-4">
-        <Button className="bg-primary text-white rounded-t-xl px-6 py-2">
+      {/* Top Buttons: Flights, Umrah, Visa */}
+      <div className="flex justify-center gap-4 mb-[-20px] relative z-10">
+        <Button className="bg-primary text-white shadow-md rounded-xl px-6 py-2">
           <FaPlaneDeparture className="mr-2" />
           Flights
         </Button>
-        <Button className="bg-red-700 text-white rounded-t-xl px-6 py-2">
-          <FaKaaba className="mr-2" /> Umrah
+        <Button className="bg-primary text-white shadow-md rounded-xl px-6 py-2">
+          <FaKaaba className="mr-2" />
+          Umrah
         </Button>
-        <Button className="bg-primary text-white rounded-t-xl px-6 py-2">
+        <Button className="bg-primary text-white shadow-md rounded-xl px-6 py-2">
           Visa
         </Button>
       </div>
 
-      {/* Search Box Container */}
-      <div className="bg-white shadow-lg border border-gray-200 rounded-2xl max-w-7xl mx-auto px-6 py-6">
-        {/* Buttons Row */}
-        <div className="flex flex-wrap gap-3 mb-4 justify-center">
+      {/* Search Box */}
+      <div className="bg-white shadow-xl border border-muted rounded-2xl max-w-[1100px] mx-auto px-6 py-6 mt-10">
+        {/* Trip Options + Dropdowns */}
+        <div className="flex flex-wrap gap-3 mb-6 justify-center">
           {tripTypes.map((type, index) => (
             <Button
               key={type}
@@ -63,10 +63,11 @@ export default function SearchBox() {
             </Button>
           ))}
 
+          {/* Travel Class */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm" className="rounded-full">
-                <LiaChairSolid className="text-primary" />
+                <LiaChairSolid className="text-primary mr-1" />
                 Economy <IoMdArrowDropdown />
               </Button>
             </DropdownMenuTrigger>
@@ -77,10 +78,11 @@ export default function SearchBox() {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          {/* Traveller Count */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm" className="rounded-full">
-                <FaPersonWalkingLuggage className="text-primary" />
+                <FaPersonWalkingLuggage className="text-primary mr-1" />
                 1 Traveller <IoMdArrowDropdown />
               </Button>
             </DropdownMenuTrigger>
@@ -91,6 +93,7 @@ export default function SearchBox() {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          {/* Currency */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm" className="rounded-full">
@@ -101,8 +104,7 @@ export default function SearchBox() {
                   alt="USD"
                   className="mr-1"
                 />
-                USD
-                <IoMdArrowDropdown />
+                USD <IoMdArrowDropdown />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
@@ -113,40 +115,51 @@ export default function SearchBox() {
           </DropdownMenu>
         </div>
 
-        {/* Input Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
-          <div className="flex items-center gap-2">
-            <FaPlaneDeparture className="text-primary" />
+        {/* Inputs Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6">
+          {/* From Where */}
+          <div className="relative">
+            <FaPlaneDeparture className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary text-base" />
             <Input
               type="text"
               placeholder="From Where"
-              className="rounded-full px-4"
+              className="pl-10 rounded-full"
             />
           </div>
-          <div className="flex items-center gap-2">
-            <FaPlaneArrival className="text-primary" />
+
+          {/* To Where */}
+          <div className="relative">
+            <FaPlaneArrival className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary text-base" />
             <Input
               type="text"
               placeholder="To Where"
-              className="rounded-full px-4"
+              className="pl-10 rounded-full"
             />
           </div>
-          <div className="flex items-center gap-2">
+
+          {/* Departure */}
+          <div className="w-full">
             <DatePicker placeholder="Departure" />
           </div>
-          <div className="flex items-center gap-2">
+
+          {/* Return */}
+          <div className="w-full">
             <DatePicker placeholder="Return" />
           </div>
-          <div className="flex items-center gap-2">
-            <FaPhone className="text-primary" />
+
+          {/* Contact No. */}
+          <div className="relative">
+            <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary text-base" />
             <Input
               type="text"
               placeholder="Contact No."
-              className="rounded-full px-4"
+              className="pl-10 rounded-full"
             />
           </div>
-          <Button className="bg-primary text-white hover:bg-primary/90 rounded-full w-full lg:w-auto">
-            <FaSearch />
+
+          {/* Search Button */}
+          <Button className="bg-primary text-white hover:bg-primary/90 rounded-full w-full sm:w-auto sm:px-6">
+            <FaSearch className="mr-2" />
             Search
           </Button>
         </div>
