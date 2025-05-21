@@ -1,3 +1,9 @@
+import SearchBox from "@/components/search-box";
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <SearchBox />
+    </div>
+  );
 }
