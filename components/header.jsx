@@ -22,7 +22,12 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { contactDetails, navLinks, navDropdownItems } from "@/lib/siteData";
+import {
+  contactDetails,
+  navLinks,
+  navDropdownItems,
+  navDropdownContent,
+} from "@/lib/siteData";
 
 export default function Header() {
   return (
@@ -103,15 +108,32 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 py-3 flex justify-center flex-wrap gap-6">
           {navLinks.map((item) => {
             const hasDropdown = navDropdownItems.includes(item);
+            const dropdownItems = navDropdownContent[item];
 
             return hasDropdown ? (
               <DropdownMenu key={item}>
                 <DropdownMenuTrigger className="flex items-center gap-1 px-2 py-1 rounded hover:bg-white/10 transition">
                   {item} <IoMdArrowDropdown />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent>
+                {/* <DropdownMenuContent>
                   <DropdownMenuItem>{item} Info</DropdownMenuItem>
                   <DropdownMenuItem>{item} Packages</DropdownMenuItem>
+                </DropdownMenuContent> */}
+                {/* <DropdownMenuContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 max-w-5xl"> */}
+                <DropdownMenuContent
+                  className={`grid gap-1 ${
+                    dropdownItems.length > 15
+                      ? "lg:grid-cols-3"
+                      : dropdownItems.length > 6
+                      ? "md:grid-cols-2"
+                      : "grid-cols-1"
+                  } max-w-[800px] w-auto`}
+                >
+                  {dropdownItems.map((subItem, index) => (
+                    <DropdownMenuItem key={`${subItem}-${index}`}>
+                      {subItem}
+                    </DropdownMenuItem>
+                  ))}
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
